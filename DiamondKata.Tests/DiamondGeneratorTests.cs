@@ -67,4 +67,30 @@ public sealed class DiamondGeneratorTests
             Assert.That(result.GetLength(1), Is.EqualTo(3));
         });
     }
+    
+    [Test]
+    public void GenerateDiamondMatrix_GivenLetterC_ReturnMatrixHaving5ColumnsAnd5RowWithLetterCInCenter()
+    {
+        // Arrange
+        IDiamondGenerator generator = new DiamondGenerator();
+        char[,] expectedMatrix =
+        {
+            { ' ', ' ', 'A', ' ', ' ' },
+            { ' ', 'B', ' ', 'B', ' ' },
+            { 'C', ' ', ' ', ' ', 'C' },
+            { ' ', 'B', ' ', 'B', ' ' },
+            { ' ', ' ', 'A', ' ', ' ' }
+        };
+
+        // Act
+        var result = generator.GenerateDiamondMatrix('C');
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(result, Is.EqualTo(expectedMatrix));
+            Assert.That(result.GetLength(0), Is.EqualTo(5));
+            Assert.That(result.GetLength(1), Is.EqualTo(5));
+        });
+    }
 }
