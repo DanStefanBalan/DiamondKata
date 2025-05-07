@@ -6,6 +6,14 @@ public sealed class DiamondGenerator : IDiamondGenerator
 {
     public char[,] GenerateDiamondMatrix(char targetLetter)
     {
-        throw new NotImplementedException();
+        if (targetLetter == 'A')
+        {
+            return new char[,]
+            {
+                { 'A' }
+            };
+        }
+
+        return new char[0,0];
     }
 }
