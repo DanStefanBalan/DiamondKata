@@ -7,7 +7,7 @@ namespace DiamondKata.Tests;
 public sealed class DiamondGeneratorTests
 {
     [Test]
-    public void Generate_GivenLetterA_ReturnMatrixHaving1ColumnAnd1RowWithLetterA()
+    public void GenerateDiamondMatrix_GivenLetterA_ReturnMatrixHaving1ColumnAnd1RowWithLetterA()
     {
         // Arrange
         IDiamondGenerator generator = new DiamondGenerator();
@@ -26,5 +26,21 @@ public sealed class DiamondGeneratorTests
             Assert.That(result.GetLength(0), Is.EqualTo(1));
             Assert.That(result.GetLength(1), Is.EqualTo(1));
         });
+    }
+    
+    [TestCase('3')]
+    [TestCase('!')]
+    [TestCase('&')]
+    [TestCase('>')]
+    [TestCase('a')]
+    [TestCase('t')]
+    public void GenerateDiamondMatrix_GivenWrongInput_ThrowException(char input)
+    {
+        // Arrange
+        IDiamondGenerator generator = new DiamondGenerator();
+        
+        // Act + Assert
+        var ex = Assert.Throws<ArgumentException>(() => generator.GenerateDiamondMatrix('1'));
+        Assert.That(ex.Message, Is.EqualTo("Input must be a letter from A-Z."));
     }
 }
