@@ -1,0 +1,45 @@
+# Build artifacts
+bin/
+obj/
+*.dll
+*.pdb
+
+# Rider / JetBrains
+.idea/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.ide
+*.sln.docstates
+
+# macOS
+.DS_Store
+
+# .NET Core
+project.lock.json
+project.assets.json
+**/properties/launchSettings.json
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+.nuget/
+
+# Debug and Release folders
+Debug/
+Release/
+
+# Logs
+logs/
+*.log
+
+# Generated files
+*.gen.cs
+*.generated.cs
+
+# XML files
+*.xml
